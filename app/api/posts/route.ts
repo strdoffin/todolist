@@ -1,10 +1,9 @@
-import { PrismaClient } from '@prisma/client'
+import { db } from "@/lib/db"
 
-const prisma = new PrismaClient()
 
 export async function GET() {
     try {
-      const posts = await prisma.post.findMany();
+      const posts = await db.post.findMany();
       return new Response(JSON.stringify(posts), { status: 200 });
     } catch (error) {
       console.error('Error fetching posts:', error);
@@ -16,7 +15,7 @@ export async function GET() {
 export async function POST(req: Request) {
     try {
       const { title, content } = await req.json();
-      const newPost = await prisma.post.create({
+      const newPost = await db.post.create({
         data: {
           title,
           content,
