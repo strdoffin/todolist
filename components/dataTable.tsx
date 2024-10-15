@@ -15,7 +15,7 @@ const FecthData = async () => {
     );
 };
 
-export default async function DataTable() {
+export default function DataTable() {
     return (
         <main className="p-[2vh]">
             <div className="w-full flex justify-end">
