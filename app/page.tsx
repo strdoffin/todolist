@@ -37,6 +37,7 @@ export default async function Home() {
                     <TodoItem post={post} key={post.id} />
                 ))}
             </div>
+            <h2>test</h2>
         </main>
     );
 }
