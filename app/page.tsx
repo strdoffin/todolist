@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic'
 import { DeleteTodo } from "@/action/delete-todo";
 import { TodoItem } from "@/components/todo";
 import Image from "next/image";
