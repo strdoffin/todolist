@@ -1,5 +1,6 @@
 'use server'
 import { db } from "@/lib/db"
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation"
 
 export const UpdateTodo = async(prevState: any, formData: FormData) =>{
@@ -14,6 +15,7 @@ export const UpdateTodo = async(prevState: any, formData: FormData) =>{
         content,
     },
     })
+    revalidatePath('/')
     redirect('/')
     return {success: 'CreateTodo Success'}
 }

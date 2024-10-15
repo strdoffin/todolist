@@ -1,4 +1,5 @@
 import { db } from "@/lib/db"
+import { revalidatePath } from "next/cache";
 
 
 export async function GET() {
@@ -21,6 +22,7 @@ export async function POST(req: Request) {
           content,
         },
       });
+      revalidatePath('/');
       return new Response(JSON.stringify(newPost), { status: 200 });
     } catch (error) {
       console.error('Error creating post:', error); // Add a console log for debugging
